@@ -1,2 +1,4 @@
-
 trivy:
+  image:
+    registry: docker.io
+    repository: giantswarm/trivy
