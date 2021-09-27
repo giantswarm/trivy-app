@@ -1,4 +1,5 @@
 trivy:
   image:
-    registry: docker.io
+    registry: quay.io
     repository: giantswarm/trivy
+    tag: v0.19.2
