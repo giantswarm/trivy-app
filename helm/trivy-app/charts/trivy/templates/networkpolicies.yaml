@@ -41,7 +41,7 @@ spec:
   #         {{- toYaml .Values.networkPolicy.ingress.podSelector | nindent 12 }}
   #         {{- end }}
   # {{- else }}
-        from:
-          - namespaceSelector: {{ .Release.Namespace }}
+          from:
+            - namespaceSelector: {{ .Release.Namespace }}
   # {{- end }}
 {{- end }}
