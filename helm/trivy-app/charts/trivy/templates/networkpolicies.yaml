@@ -1,0 +1,16 @@
+{{- if .Values.networkPolicy.enabled }}
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: {{ include "trivy.fullname" . }}-egress
+  labels:
+    {{- include "trivy.labels" . | nindent 4 }}
+spec:
+  policyTypes:
+    - Egress
+  podSelector:
+    matchLabels:
+      {{- include "trivy.selectorLabels" . | nindent 6 }}
+  egress:
+    - {}
+{{- end }}
