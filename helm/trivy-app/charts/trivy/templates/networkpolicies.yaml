@@ -13,21 +13,7 @@ spec:
     matchLabels:
       {{- include "trivy.selectorLabels" . | nindent 6 }}
   egress:
-    - ports:
-        - port: 53
-          protocol: UDP
-      to:
-        - namespaceSelector: {}
-
----
-apiVersion: networking.k8s.io/v1
-kind: NetworkPolicy
-metadata:
-  name: {{ include "trivy.fullname" . }}-egress-external
-  labels:
-    {{- include "trivy.labels" . | nindent 4 }}
-spec:
-  egress:
+    # Allow egress to the internet to fetch database updates.
     - to:
       - ipBlock:
           cidr: 0.0.0.0/0
@@ -35,9 +21,26 @@ spec:
           #   - 10.0.0.0/8
           #   - 172.16.0.0/12
           #   - 192.168.0.0/16
-  policyTypes:
-    - Egress
-  podSelector:
-    matchLabels:
-      {{- include "trivy.selectorLabels" . | nindent 6 }}
+    # Allow DNS.
+    - ports:
+        - port: 53
+          protocol: UDP
+      to:
+        - namespaceSelector: {}
+  ingress:
+    - ports:
+        - port: {{ .Values.service.port | default 4954 }}
+          protocol: TCP
+  {{- if .Values.networkPolicy.ingress.namespaceSelector }}
+      from:
+        - namespaceSelector:
+          {{- toYaml .Values.networkPolicy.ingress.namespaceSelector | nindent 12 }}
+          {{- if .Values.networkPolicy.ingress.podSelector }}
+          podSelector:
+          {{- toYaml .Values.networkPolicy.ingress.podSelector | nindent 12 }}
+          {{- end }}
+  {{- else }}
+      from:
+        - namespaceSelector: {{ .Release.Namespace }}
+  {{- end }}
 {{- end }}
