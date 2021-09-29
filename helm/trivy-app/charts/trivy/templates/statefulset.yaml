@@ -10,8 +10,7 @@ spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app.kubernetes.io/name: {{ include "trivy.name" . }}
-      app.kubernetes.io/instance: {{ .Release.Name }}
+      {{- include "trivy.selectorLabels" . | nindent 6 }}
   {{- if .Values.persistence.enabled }}
   volumeClaimTemplates:
     - metadata:
