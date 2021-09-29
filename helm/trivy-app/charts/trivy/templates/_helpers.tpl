@@ -45,6 +45,14 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{- end -}}
 
 {{/*
+Selector labels
+*/}}
+{{- define "trivy.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "trivy.fullname" . }}
+app.kubernetes.io/instance: {{ .Release.Name }}
+{{- end }}
+
+{{/*
 Return the proper imageRef as used by the container template spec.
 */}}
 {{- define "trivy.imageRef" -}}
