@@ -7,7 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.0.1] - 2021-09-13
+### Added
 
-[Unreleased]: https://github.com/giantswarm/trivy-app/compare/v0.0.1...HEAD
-[0.0.1]: https://github.com/giantswarm/trivy-app/releases/tag/v0.0.1
+- Initial trivy resources.
+
+[Unreleased]: https://github.com/giantswarm/REPOSITORY_NAME/tree/master
