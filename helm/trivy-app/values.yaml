@@ -3,3 +3,9 @@ trivy:
     registry: quay.io
     repository: giantswarm/trivy
     tag: 0.19.2
+
+  networkPolicy:
+    enabled: true
+    ingress:
+      namespaceSelector: {}
+      podSelector: {}
