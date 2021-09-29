@@ -28,8 +28,9 @@ spec:
       to:
         - namespaceSelector: {}
   ingress:
+    # Allow ingress from trivy's namespace, if no alternate is given.
     - ports:
-        - port: {{ .Values.service.port | default 4954 }}
+        - port: 4954
           protocol: TCP
   {{- if .Values.networkPolicy.ingress.namespaceSelector }}
       from:
