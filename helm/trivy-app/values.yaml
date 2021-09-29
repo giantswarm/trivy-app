@@ -7,5 +7,5 @@ trivy:
   networkPolicy:
     enabled: true
     ingress:
-    #   namespaceSelector:
-    #   podSelector:
+      namespaceSelector:
+      podSelector:
