@@ -10,5 +10,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Initial trivy resources.
+- Basic NetworkPolicy resources.
 
 [Unreleased]: https://github.com/giantswarm/REPOSITORY_NAME/tree/master
