@@ -2,7 +2,7 @@
 
 # trivy-app chart
 
-Giant Swarm offers a trivy-app App which can be installed in workload clusters.
+Giant Swarm offers a trivy App which can be installed in workload clusters.
 Here we define the trivy-app chart with its templates and default configuration.
 
 **What is this app?**
@@ -61,4 +61,4 @@ Not following these limitations will most likely result in a broken deployment.
 
 ## Credit
 
-* {APP HELM REPOSITORY}
+* https://github.com/aquasecurity/trivy
