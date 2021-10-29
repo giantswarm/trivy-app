@@ -9,6 +9,7 @@ metadata:
 spec:
   policyTypes:
     - Egress
+    - Ingress
   podSelector:
     matchLabels:
       {{- include "trivy.selectorLabels" . | nindent 6 }}
