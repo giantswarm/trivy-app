@@ -48,7 +48,7 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 Selector labels
 */}}
 {{- define "trivy.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "trivy.fullname" . }}
+app.kubernetes.io/name: {{ include "trivy.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
