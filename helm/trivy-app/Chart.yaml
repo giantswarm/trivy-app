@@ -6,7 +6,7 @@ annotations:
 description: A Helm chart for trivy
 engine: gotpl
 home: https://github.com/giantswarm/trivy-app
-icon: https://s.giantswarm.io/app-icons/1/png/default-app-light.png
+icon: https://s.giantswarm.io/app-icons/trivy/1/light.svg
 maintainers:
 - name: Giant Swarm applications team
   url: https://github.com/giantswarm/trivy-app
