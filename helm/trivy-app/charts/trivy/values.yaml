@@ -88,7 +88,7 @@ trivy:
       url: ""  # e.g. redis://redis.redis.svc:6379
 
 service:
-  name:
+  name: "security-pack-trivy"
   # type Kubernetes service type
   type: ClusterIP
   # port Kubernetes service port
