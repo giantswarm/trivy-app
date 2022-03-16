@@ -1,7 +1,6 @@
 {
   "extends": [
-    "config:base",
-    ":reviewer(team:needs-owner)"
+    "config:base"
   ],
   "labels": ["dependencies"],
   "dependencyDashboard": true,
