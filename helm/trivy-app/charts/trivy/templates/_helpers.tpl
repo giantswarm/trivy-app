@@ -53,3 +53,10 @@ Return the proper imageRef as used by the container template spec.
 {{- $tag := .Values.image.tag | default .Chart.AppVersion | toString -}}
 {{- printf "%s/%s:%s" $registryName $repositoryName $tag -}}
 {{- end -}}
+
+{{- define "call-nested" }}
+{{- $dot := index . 0 }}
+{{- $subchart := index . 1 }}
+{{- $template := index . 2 }}
+{{- include $template (dict "Chart" (dict "Name" $subchart) "Values" (index $dot.Values $subchart) "Release" $dot.Release "Capabilities" $dot.Capabilities) }}
+{{- end }}
