@@ -12,7 +12,8 @@ spec:
     - Ingress
   podSelector:
     matchLabels:
-      {{- include "trivy.selectorLabels" .Subcharts.trivy | nindent 6 }}
+      {{- include "labels.selector" . | nindent 6 }}
+      # {{- include "trivy.selectorLabels" .Subcharts.trivy | nindent 6 }}
   egress:
     # Allow egress to the internet to fetch database updates.
     - to:
