@@ -4,13 +4,17 @@ metadata:
   name: {{ include "trivy.fullname" . }}
   labels:
 {{ include "trivy.labels" . | indent 4 }}
+    {{- with .Values.trivy.labels }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
 spec:
   podManagementPolicy: "Parallel"
   serviceName: {{ include "trivy.fullname" . }}
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      {{- include "trivy.selectorLabels" . | nindent 6 }}
+      app.kubernetes.io/name: {{ include "trivy.name" . }}
+      app.kubernetes.io/instance: {{ .Release.Name }}
   {{- if .Values.persistence.enabled }}
   volumeClaimTemplates:
     - metadata:
@@ -26,7 +30,11 @@ spec:
   template:
     metadata:
       labels:
-        {{- include "trivy.selectorLabels" . | nindent 8 }}
+        app.kubernetes.io/name: {{ include "trivy.name" . }}
+        app.kubernetes.io/instance: {{ .Release.Name }}
+        {{- with .Values.trivy.labels }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
     spec:
       serviceAccountName: {{ include "trivy.fullname" . }}
       automountServiceAccountToken: false
@@ -60,6 +68,19 @@ spec:
           {{- end }}
           args:
             - server
+          {{- if .Values.trivy.registryCredentialsExistingSecret }}
+          env:
+            - name: TRIVY_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.trivy.registryCredentialsExistingSecret }}
+                  key: TRIVY_USERNAME
+            - name: TRIVY_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.trivy.registryCredentialsExistingSecret }}
+                  key: TRIVY_PASSWORD
+          {{- end }}
           envFrom:
             - configMapRef:
                 name: {{ include "trivy.fullname" . }}

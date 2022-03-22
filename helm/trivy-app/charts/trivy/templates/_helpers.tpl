@@ -45,19 +45,11 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{- end -}}
 
 {{/*
-Selector labels
-*/}}
-{{- define "trivy.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "trivy.name" . }}
-app.kubernetes.io/instance: {{ .Release.Name }}
-{{- end }}
-
-{{/*
 Return the proper imageRef as used by the container template spec.
 */}}
 {{- define "trivy.imageRef" -}}
 {{- $registryName := .Values.image.registry -}}
 {{- $repositoryName := .Values.image.repository -}}
-{{- $tag := .Values.image.tag | toString -}}
+{{- $tag := .Values.image.tag | default .Chart.AppVersion | toString -}}
 {{- printf "%s/%s:%s" $registryName $repositoryName $tag -}}
 {{- end -}}

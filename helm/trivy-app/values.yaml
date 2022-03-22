@@ -1,11 +1,15 @@
+networkPolicy:
+  enabled: true
+  ingress:
+    namespaceSelector: {}
+    podSelector: {}
+
 trivy:
   image:
-    registry: quay.io
+    registry: docker.io
     repository: giantswarm/trivy
-    tag: 0.21.0
-
-  networkPolicy:
-    enabled: true
-    ingress:
-      namespaceSelector: {}
-      podSelector: {}
+    # Tag must also be updated in starboard-app
+    # If not set here, the image version is taken from the appVersion of the upstream chart.
+    # tag: 0.24.0
+  service:
+    port:

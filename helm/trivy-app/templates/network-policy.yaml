@@ -12,7 +12,7 @@ spec:
     - Ingress
   podSelector:
     matchLabels:
-      {{- include "trivy.selectorLabels" . | nindent 6 }}
+      {{- include "labels.selector" . | nindent 6 }}
   egress:
     # Allow egress to the internet to fetch database updates.
     - to:
@@ -31,7 +31,7 @@ spec:
   ingress:
     # Allow ingress from trivy's namespace, if no alternate is given.
     - ports:
-        - port: {{ .Values.service.port | default 4954 }}
+        - port: {{ .Values.trivy.service.port | default 4954 }}
           protocol: TCP
   # {{- if .Values.networkPolicy.ingress.namespaceSelector }}
   #     from:
