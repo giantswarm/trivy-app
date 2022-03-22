@@ -44,8 +44,3 @@ Selector labels
 app.kubernetes.io/name: {{ include "call-nested" (list . "trivy" "trivy.name") | quote }}
 app.kubernetes.io/instance: {{ .Release.Name | quote }}
 {{- end -}}
-
-{{/* 
-{ {- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" -} }
-app.kubernetes.io/name: { { include "trivy.name" | quote  }}
-*/}}
