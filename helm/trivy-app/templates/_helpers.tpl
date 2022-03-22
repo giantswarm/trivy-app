@@ -15,6 +15,13 @@ Create chart name and version as used by the chart label.
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
 
+{{- define "call-nested" }}
+{{- $dot := index . 0 }}
+{{- $subchart := index . 1 }}
+{{- $template := index . 2 }}
+{{- include $template (dict "Chart" (dict "Name" $subchart) "Values" (index $dot.Values $subchart) "Release" $dot.Release "Capabilities" $dot.Capabilities) }}
+{{- end }}
+
 {{/*
 Common labels
 */}}
@@ -34,6 +41,7 @@ giantswarm.io/service-type: {{ .Values.serviceType }}
 Selector labels
 */}}
 {{- define "labels.selector" -}}
-app.kubernetes.io/name: {{ include "trivy.name" .Subcharts.trivy | quote }}
+app.kubernetes.io/name: {{ include "call-nested" (list . "trivy" "trivy.name") | quote }}
+/* app.kubernetes.io/name: {{ include "trivy.name" | quote }} */
 app.kubernetes.io/instance: {{ .Release.Name | quote }}
 {{- end -}}
