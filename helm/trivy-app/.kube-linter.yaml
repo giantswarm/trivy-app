@@ -1,0 +1,15 @@
+checks:
+  addAllBuiltIn: true
+  exclude:
+  - "non-existent-service-account"
+  # - "exposed-services"
+  # - "no-liveness-probe"
+  # - "no-read-only-root-fs"
+  # - "no-readiness-probe"
+  # - "privilege-escalation-container"
+  # - "privileged-ports"
+  # - "required-annotation-email"
+  # - "required-label-owner"
+  # - "unsafe-sysctls"
+  # - "unset-cpu-requirements"
+  # - "unset-memory-requirements"
