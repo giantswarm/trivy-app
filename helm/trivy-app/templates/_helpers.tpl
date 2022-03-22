@@ -34,6 +34,6 @@ giantswarm.io/service-type: {{ .Values.serviceType }}
 Selector labels
 */}}
 {{- define "labels.selector" -}}
-app.kubernetes.io/name: {{ include "name" . | quote }}
+app.kubernetes.io/name: {{ include "trivy.name" .Subcharts.trivy | quote }}
 app.kubernetes.io/instance: {{ .Release.Name | quote }}
 {{- end -}}
