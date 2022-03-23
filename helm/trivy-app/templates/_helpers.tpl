@@ -15,6 +15,9 @@ Create chart name and version as used by the chart label.
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
 
+{{/*
+This function is only needed until app-operator supports Helm v3.7.0+, which includes the .Subcharts feature.
+*/}}
 {{- define "call-nested" }}
 {{- $dot := index . 0 }}
 {{- $subchart := index . 1 }}
