@@ -16,6 +16,16 @@ Create chart name and version as used by the chart label.
 {{- end -}}
 
 {{/*
+This function is only needed until app-operator supports Helm v3.7.0+, which includes the .Subcharts feature.
+*/}}
+{{- define "call-nested" }}
+{{- $dot := index . 0 }}
+{{- $subchart := index . 1 }}
+{{- $template := index . 2 }}
+{{- include $template (dict "Chart" (dict "Name" $subchart) "Values" (index $dot.Values $subchart) "Release" $dot.Release "Capabilities" $dot.Capabilities) }}
+{{- end }}
+
+{{/*
 Common labels
 */}}
 {{- define "labels.common" -}}
@@ -34,6 +44,6 @@ giantswarm.io/service-type: {{ .Values.serviceType }}
 Selector labels
 */}}
 {{- define "labels.selector" -}}
-app.kubernetes.io/name: {{ include "name" . | quote }}
+app.kubernetes.io/name: {{ include "call-nested" (list . "trivy" "trivy.name") | quote }}
 app.kubernetes.io/instance: {{ .Release.Name | quote }}
 {{- end -}}
