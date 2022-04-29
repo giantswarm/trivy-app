@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/giantswarm/trivy-app-app.svg?style=shield)](https://circleci.com/gh/giantswarm/trivy-app-app)
+[![CircleCI](https://circleci.com/gh/giantswarm/trivy-app.svg?style=shield)](https://circleci.com/gh/giantswarm/trivy-app)
 
 # trivy-app chart
 
