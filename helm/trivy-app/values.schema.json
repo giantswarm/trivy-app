@@ -39,7 +39,7 @@
                     "type": "object",
                     "properties": {
                         "port": {
-                            "type": "null"
+                            "type": "integer"
                         }
                     }
                 }
