@@ -6,7 +6,6 @@ from typing import Dict, List
 import pykube
 import pytest
 from pytest_helm_charts.fixtures import Cluster
-# from pytest_helm_charts.utils import wait_for_deployments_to_run
 from pytest_helm_charts.utils import wait_for_stateful_sets_to_run
 
 logger = logging.getLogger(__name__)
@@ -45,7 +44,7 @@ def test_cluster_info(
 # scope "module" means this is run only once, for the first test case requesting! It might be tricky
 # if you want to assert this multiple times
 @pytest.fixture(scope="module")
-def app_deployment(kube_cluster: Cluster) -> List[pykube.Deployment]:
+def app_statefulset(kube_cluster: Cluster) -> List[pykube.StatefulSet]:
     deployments = wait_for_stateful_sets_to_run(
         kube_cluster.kube_client,
         ["trivy-app"],
@@ -60,7 +59,6 @@ def app_deployment(kube_cluster: Cluster) -> List[pykube.Deployment]:
 @pytest.mark.smoke
 @pytest.mark.upgrade
 @pytest.mark.flaky(reruns=5, reruns_delay=10)
-# def test_pods_available(kube_cluster: Cluster, app_deployment: List[pykube.Deployment]):
 def test_pods_available(kube_cluster: Cluster, app_statefulset: List[pykube.StatefulSet]):
     for d in app_statefulset:
         assert int(d.obj["status"]["readyReplicas"]) > 0
