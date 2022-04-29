@@ -29,6 +29,16 @@ workflows:
             tags:
               only: /^v.*/
 
+      - architect/run-tests-with-ats:
+          name: execute chart tests
+          filters:
+            # Do not trigger the job on merge to master.
+            branches:
+              ignore:
+                - master
+          requires:
+            - push-trivy-app-to-giantswarm-catalog
+
       - architect/push-to-app-collection:
           name: aws-app-collection
           context: "architect"
