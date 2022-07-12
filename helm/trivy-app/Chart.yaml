@@ -2,7 +2,7 @@ apiVersion: v2
 appVersion: 0.25.0
 annotations:
   application.giantswarm.io/team: "shield"
-  config.giantswarm.io/version: 1.x.x
+  config.giantswarm.io/version: "fix-trivy-image"
 description: A Helm chart for trivy
 engine: gotpl
 home: https://github.com/giantswarm/trivy-app
