@@ -8,8 +8,8 @@ trivy:
   image:
     registry: docker.io
     repository: giantswarm/trivy
-    # Tag must also be updated in starboard-app
+    # Tag must also be updated to match in trivy-operator-app
     # If not set here, the image version is taken from the appVersion of the upstream chart.
-    # tag: 0.24.0
+    tag: 0.28.1
   service:
     port:
