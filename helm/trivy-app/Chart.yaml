@@ -1,7 +1,7 @@
 apiVersion: v2
-appVersion: 0.24.0
+appVersion: 0.25.0
 annotations:
-  application.giantswarm.io/team: "honeybadger"
+  application.giantswarm.io/team: "shield"
   config.giantswarm.io/version: 1.x.x
 description: A Helm chart for trivy
 engine: gotpl
@@ -17,4 +17,4 @@ version: [[ .Version ]]
 
 dependencies:
 - name: trivy
-  version: 0.4.12
+  version: 0.4.13

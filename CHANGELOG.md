@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.0] - 2022-04-12
+
+### Changed
+
+- Update to upstream version `0.4.13`/app version `0.25.0`.
+
 ## [0.2.0] - 2022-03-23
 
 ### Changed
@@ -33,7 +39,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Initial trivy resources.
 - Basic NetworkPolicy resources.
 
-[Unreleased]: https://github.com/giantswarm/trivy-app/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/giantswarm/trivy-app/compare/v0.3.0...HEAD
+[0.3.0]: https://github.com/giantswarm/trivy-app/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/giantswarm/trivy-app/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/giantswarm/trivy-app/compare/v0.0.2...v0.1.0
 [0.0.2]: https://github.com/giantswarm/trivy-app/compare/v0.0.1...v0.0.2
