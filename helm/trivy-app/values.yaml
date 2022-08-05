@@ -13,3 +13,7 @@ trivy:
     tag: 0.29.2
   service:
     port:
+  modules:
+    enabled: false
+    urls:
+    - ghcr.io/aquasecurity/trivy-module-spring4shell
