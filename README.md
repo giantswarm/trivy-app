@@ -18,7 +18,7 @@ Trivy is a comprehensive security scanner supporting detection of several types 
 * IaC misconfigurations
 * Sensitive information and secrets
 
-Read more in the (Trivy Documentation)[https://aquasecurity.github.io/trivy/]
+Read more in the (Trivy documentation)[https://aquasecurity.github.io/trivy/]
 
 ## Installing
 
