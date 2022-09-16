@@ -1,9 +1,6 @@
 [![CircleCI](https://circleci.com/gh/giantswarm/trivy-app.svg?style=shield)](https://circleci.com/gh/giantswarm/trivy-app)
 
-# trivy-app chart
-
-Giant Swarm offers a Trivy App which can be installed in workload clusters.
-Here we define the `trivy-app` chart with its templates and default configuration.
+# trivy-app
 
 Trivy is a comprehensive security scanner, it has different scanners that look for different security issues, and different targets where it can find those issues.
 
