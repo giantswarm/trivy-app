@@ -1,13 +1,24 @@
-[![CircleCI](https://circleci.com/gh/giantswarm/trivy-app-app.svg?style=shield)](https://circleci.com/gh/giantswarm/trivy-app-app)
+[![CircleCI](https://circleci.com/gh/giantswarm/trivy-app.svg?style=shield)](https://circleci.com/gh/giantswarm/trivy-app)
 
-# trivy-app chart
+# trivy-app
 
-Giant Swarm offers a trivy App which can be installed in workload clusters.
-Here we define the trivy-app chart with its templates and default configuration.
+Trivy is a comprehensive security scanner supporting detection of several types of security issues across various types of target resources.
 
-**What is this app?**
-**Why did we add it?**
-**Who can use it?**
+### Targets:
+
+* Container Image
+* Filesystem
+* Git repository (remote)
+* Kubernetes cluster or resource
+
+### Scanners:
+
+* OS packages and software dependencies in use (SBOM)
+* Known vulnerabilities (CVEs)
+* IaC misconfigurations
+* Sensitive information and secrets
+
+Read more in the (Trivy documentation)[https://aquasecurity.github.io/trivy/]
 
 ## Installing
 
@@ -20,43 +31,22 @@ There are several ways to install this app onto a workload cluster.
 
 ### values.yaml
 **This is an example of a values file you could upload using our web interface.**
-```
+```yaml
 # values.yaml
-
-```
-
-### Sample App CR and ConfigMap for the management cluster
-If you have access to the Kubernetes API on the management cluster, you could create
-the App CR and ConfigMap directly.
-
-Here is an example that would install the app to
-workload cluster `abc12`:
-
-```
-# appCR.yaml
-
-```
-
-```
-# user-values-configmap.yaml
-
-
+trivy:
+  modules:
+    # Enable Trivy modules feature and install the spring4shell module
+    enabled: true
+    urls:
+    - ghcr.io/aquasecurity/trivy-module-spring4shell
 ```
 
 See our [full reference page on how to configure applications][app-config] for more details.
 
-## Compatibility
+## Development
 
-This app has been tested to work with the following workload cluster release versions:
-
-*
-
-## Limitations
-
-Some apps have restrictions on how they can be deployed.
-Not following these limitations will most likely result in a broken deployment.
-
-*
+### Subtrees
+This repo is configured to have a git subtree split folder helm/trivy from https://github.com/giantswarm/trivy-upstream at helm/trivy-app/charts/trivy/ in the local repository.
 
 ## Credit
 
