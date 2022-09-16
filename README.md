@@ -2,7 +2,7 @@
 
 # trivy-app
 
-Trivy is a comprehensive security scanner, it has different scanners that look for different security issues, and different targets where it can find those issues.
+Trivy is a comprehensive security scanner supporting detection of several types of security issues across various types of target resources.
 
 ### Targets:
 
