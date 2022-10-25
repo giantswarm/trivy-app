@@ -1,0 +1,48 @@
+{{- if .Values.networkPolicy.enabled }}
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: {{ include "trivy.fullname" . }}-netpol
+  labels:
+    {{- include "trivy.labels" . | nindent 4 }}
+spec:
+  policyTypes:
+    - Egress
+    - Ingress
+  podSelector:
+    matchLabels:
+      {{- include "labels.selector" . | nindent 6 }}
+  egress:
+    # Allow egress to the internet to fetch database updates.
+    - to:
+      - ipBlock:
+          cidr: 0.0.0.0/0
+          # except:
+          #   - 10.0.0.0/8
+          #   - 172.16.0.0/12
+          #   - 192.168.0.0/16
+    # Allow DNS.
+    - ports:
+        - port: 53
+          protocol: UDP
+      to:
+        - namespaceSelector: {}
+  ingress:
+    # Allow ingress from trivy's namespace, if no alternate is given.
+    - ports:
+        - port: {{ .Values.trivy.service.port | default 4954 }}
+          protocol: TCP
+  # {{- if .Values.networkPolicy.ingress.namespaceSelector }}
+  #     from:
+  #       - namespaceSelector:
+  #         {{- toYaml .Values.networkPolicy.ingress.namespaceSelector | nindent 12 }}
+  #         {{- if .Values.networkPolicy.ingress.podSelector }}
+  #         podSelector:
+  #         {{- toYaml .Values.networkPolicy.ingress.podSelector | nindent 12 }}
+  #         {{- end }}
+  # {{- else }}
+          from:
+            - namespaceSelector: {{ .Release.Namespace }}
+  # {{- end }}
+{{- end }}
