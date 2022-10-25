@@ -47,7 +47,7 @@ def test_cluster_info(
 def app_statefulset(kube_cluster: Cluster) -> List[pykube.StatefulSet]:
     deployments = wait_for_stateful_sets_to_run(
         kube_cluster.kube_client,
-        ["trivy-app"],
+        ["trivy"],
         "default",
         timeout,
     )
