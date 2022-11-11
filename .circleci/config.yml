@@ -7,7 +7,7 @@ workflows:
     jobs:
       - architect/push-to-app-catalog:
           context: "architect"
-          name: push-trivy-app-to-control-plane-catalog
+          name: push-trivy-to-control-plane-catalog
           app_catalog: "control-plane-catalog"
           app_catalog_test: "control-plane-test-catalog"
           chart: "trivy"
@@ -19,7 +19,7 @@ workflows:
 
       - architect/push-to-app-catalog:
           context: "architect"
-          name: push-trivy-app-to-giantswarm-catalog
+          name: push-trivy-to-giantswarm-catalog
           app_catalog: "giantswarm-catalog"
           app_catalog_test: "giantswarm-test-catalog"
           chart: "trivy"
@@ -38,82 +38,104 @@ workflows:
               ignore:
                 - master
           requires:
-            - push-trivy-app-to-giantswarm-catalog
+            - push-trivy-to-giantswarm-catalog
 
+      # Push trivy to app collections
       - architect/push-to-app-collection:
-          name: aws-app-collection
           context: "architect"
+          name: push-trivy-to-aws-app-collection
           app_name: "trivy"
           app_collection_repo: "aws-app-collection"
           requires:
-            - push-trivy-app-to-control-plane-catalog
+            - push-trivy-to-control-plane-catalog
           filters:
+            # Only do this when a new tag is created.
             branches:
               ignore: /.*/
             tags:
               only: /^v.*/
 
       - architect/push-to-app-collection:
-          name: azure-app-collection
           context: "architect"
+          name: push-trivy-to-azure-app-collection
           app_name: "trivy"
           app_collection_repo: "azure-app-collection"
           requires:
-            - push-trivy-app-to-control-plane-catalog
+            - push-trivy-to-control-plane-catalog
           filters:
+            # Only do this when a new tag is created.
             branches:
               ignore: /.*/
             tags:
               only: /^v.*/
 
-      #- architect/push-to-app-collection:
-      #    name: kvm-app-collection
-      #    context: "architect"
-      #    app_name: "trivy-app"
-      #    app_collection_repo: "kvm-app-collection"
-      #    requires:
-      #      - push-trivy-app-to-control-plane-catalog
-      #    filters:
-      #      branches:
-      #        ignore: /.*/
-      #      tags:
-      #        only: /^v.*/
-
       - architect/push-to-app-collection:
-          name: vsphere-app-collection
           context: "architect"
-          app_name: "trivy"
-          app_collection_repo: "vsphere-app-collection"
-          requires:
-            - push-trivy-app-to-control-plane-catalog
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^v.*/
-
-      - architect/push-to-app-collection:
-          context: architect
-          name: push-to-cloud-director-app-collection
-          app_name: "trivy"
-          app_collection_repo: "cloud-director-app-collection"
-          requires:
-            - push-trivy-app-to-control-plane-catalog
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^v.*/
-
-      - architect/push-to-app-collection:
-          context: architect
-          name: push-to-capa-app-collection
+          name: push-trivy-to-capa-app-collection
           app_name: "trivy"
           app_collection_repo: "capa-app-collection"
           requires:
-            - push-trivy-app-to-control-plane-catalog
+            - push-trivy-to-control-plane-catalog
           filters:
+            # Only do this when a new tag is created.
             branches:
               ignore: /.*/
             tags:
               only: /^v.*/
+
+      - architect/push-to-app-collection:
+          context: "architect"
+          name: push-trivy-to-cloud-director-app-collection
+          app_name: "trivy"
+          app_collection_repo: "cloud-director-app-collection"
+          requires:
+            - push-trivy-to-control-plane-catalog
+          filters:
+            # Only do this when a new tag is created.
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^v.*/
+
+      - architect/push-to-app-collection:
+          context: "architect"
+          name: push-trivy-to-gcp-app-collection
+          app_name: "trivy"
+          app_collection_repo: "gcp-app-collection"
+          requires:
+            - push-trivy-to-control-plane-catalog
+          filters:
+            # Only do this when a new tag is created.
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^v.*/
+
+      - architect/push-to-app-collection:
+          context: "architect"
+          name: push-trivy-to-openstack-app-collection
+          app_name: "trivy"
+          app_collection_repo: "openstack-app-collection"
+          requires:
+            - push-trivy-to-control-plane-catalog
+          filters:
+            # Only do this when a new tag is created.
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^v.*/
+
+      - architect/push-to-app-collection:
+          context: "architect"
+          name: push-trivy-to-vsphere-app-collection
+          app_name: "trivy"
+          app_collection_repo: "vsphere-app-collection"
+          requires:
+            - push-trivy-to-control-plane-catalog
+          filters:
+            # Only do this when a new tag is created.
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^v.*/
+            
