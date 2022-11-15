@@ -1,0 +1,29 @@
+{{- if .Capabilities.APIVersions.Has "autoscaling.k8s.io/v1" -}}
+{{- if .Values.verticalPodAutoscaler.enabled -}}
+apiVersion: autoscaling.k8s.io/v1
+kind: VerticalPodAutoscaler
+metadata:
+  name: {{ include "trivy.fullname" . }}-vpa
+  labels:
+    {{- include "trivy.labels" . | nindent 4 }}
+spec:
+  resourcePolicy:
+    containerPolicies:
+    - controlledResources:
+        - cpu
+        - memory
+      maxAllowed:
+        cpu: 1
+        memory: 1Gi
+      minAllowed:
+        cpu: 200m
+        memory: 512Mi
+      mode: Auto
+  targetRef:
+    apiVersion: "apps/v1"
+    kind:       StatefulSet
+    name:       {{ include "trivy.fullname" . }}
+  updatePolicy:
+    updateMode: "Auto"
+{{- end -}}
+{{- end -}}

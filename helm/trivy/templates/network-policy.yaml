@@ -5,7 +5,6 @@ kind: NetworkPolicy
 metadata:
   name: {{ include "trivy.fullname" . }}-netpol
   labels:
-    testing: rewanth
     {{- include "trivy.labels" . | nindent 4 }}
 spec:
   policyTypes:

@@ -4,6 +4,9 @@ networkPolicy:
     namespaceSelector: {}
     podSelector: {}
 
+verticalPodAutoscaler:
+  enabled: true
+
 trivy:
   image:
     registry: docker.io
