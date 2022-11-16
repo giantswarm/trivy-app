@@ -10,21 +10,22 @@ spec:
   resourcePolicy:
     containerPolicies:
     - controlledResources:
-        - cpu
-        - memory
+      {{- range .Values.verticalPodAutoscaler.controlledResources}}
+        - {{.}}
+      {{end -}}
       maxAllowed:
-        cpu: 1
-        memory: 1Gi
+        cpu: {{ .Values.verticalPodAutoscaler.maxAllowed.cpu }}
+        memory: {{ .Values.verticalPodAutoscaler.maxAllowed.memory }}
       minAllowed:
-        cpu: 200m
-        memory: 512Mi
-      mode: Auto
+        cpu: {{ .Values.verticalPodAutoscaler.minAllowed.cpu }}
+        memory: {{ .Values.verticalPodAutoscaler.minAllowed.memory }}
+      # mode: Auto
       containerName: main
   targetRef:
     apiVersion: "apps/v1"
     kind:       StatefulSet
     name:       {{ include "trivy.fullname" . }}
   updatePolicy:
-    updateMode: "Auto"
+    updateMode: {{ .Values.verticalPodAutoscaler.updateMode }}
 {{- end -}}
 {{- end -}}

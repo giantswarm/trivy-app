@@ -6,6 +6,16 @@ networkPolicy:
 
 verticalPodAutoscaler:
   enabled: true
+  updateMode: Auto
+  controlledResources:
+    - cpu
+    - memory
+  maxAllowed:
+    cpu: 1
+    memory: 1Gi
+  minAllowed:
+    cpu: 200m
+    memory: 512Mi
 
 trivy:
   image:
