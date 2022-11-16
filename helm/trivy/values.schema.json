@@ -26,6 +26,9 @@
             "properties": {
                 "enabled": {
                     "type": "boolean"
+                },
+                "updateMode": {
+                    "type": "string"
                 }
             }
         },
