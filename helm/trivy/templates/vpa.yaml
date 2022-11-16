@@ -7,20 +7,6 @@ metadata:
   labels:
     {{- include "trivy.labels" . | nindent 4 }}
 spec:
-  resourcePolicy:
-    containerPolicies:
-    - controlledResources:
-      {{- range .Values.verticalPodAutoscaler.controlledResources}}
-        - {{.}}
-      {{end -}}
-      maxAllowed:
-        cpu: {{ .Values.verticalPodAutoscaler.maxAllowed.cpu }}
-        memory: {{ .Values.verticalPodAutoscaler.maxAllowed.memory }}
-      minAllowed:
-        cpu: {{ .Values.verticalPodAutoscaler.minAllowed.cpu }}
-        memory: {{ .Values.verticalPodAutoscaler.minAllowed.memory }}
-      # mode: Auto
-      containerName: main
   targetRef:
     apiVersion: "apps/v1"
     kind:       StatefulSet
