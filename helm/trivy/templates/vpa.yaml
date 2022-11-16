@@ -12,6 +12,6 @@ spec:
     kind:       StatefulSet
     name:       {{ include "trivy.fullname" . }}
   updatePolicy:
-    updateMode: {{ .Values.verticalPodAutoscaler.updateMode }}
+    updateMode: Auto
 {{- end -}}
 {{- end -}}
