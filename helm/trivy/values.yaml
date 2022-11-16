@@ -6,7 +6,6 @@ networkPolicy:
 
 verticalPodAutoscaler:
   enabled: true
-  updateMode: Auto # Available options - auto (recommended), recreate, initial, off
 
 trivy:
   image:
