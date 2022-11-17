@@ -7,6 +7,9 @@ metadata:
   labels:
     {{- include "trivy.labels" . | nindent 4 }}
 spec:
+  resourcePolicy:
+    containerPolicies:
+    - containerName: main
   targetRef:
     apiVersion: "apps/v1"
     kind:       StatefulSet
