@@ -1,0 +1,11 @@
+apiVersion: vendir.k14s.io/v1alpha1
+directories:
+- contents:
+  - git:
+      commitTitle: 'feat(vuln): support dependency graph for RHEL/CentOS (#3094)...'
+      sha: 7912f585a38158d24b21dd58cf616cfb640b9a78
+      tags:
+      - v0.34.0
+    path: .
+  path: helm/trivy/charts
+kind: LockConfig
