@@ -1,0 +1,12 @@
+apiVersion: vendir.k14s.io/v1alpha1
+kind: Config
+directories:
+- path: helm/trivy/charts
+  contents:
+  - path: .
+    git:
+      url: https://github.com/giantswarm/trivy-upstream
+      ref: v0.34.0
+    includePaths:
+      - helm/**/*
+    newRootPath: helm
