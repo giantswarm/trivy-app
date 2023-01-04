@@ -1,0 +1,11 @@
+apiVersion: vendir.k14s.io/v1alpha1
+directories:
+- contents:
+  - git:
+      commitTitle: 'docs: improve compliance docs (#3340)'
+      sha: 4813cf5cfdaf22d3caf8ca2a2cc89448a5ef994f
+      tags:
+      - v0.36.0
+    path: .
+  path: helm/trivy/charts
+kind: LockConfig
