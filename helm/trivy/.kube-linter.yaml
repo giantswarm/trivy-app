@@ -7,3 +7,5 @@ checks:
   - "use-namespace"  # Upstream doesn't include namespace.
   - "minimum-three-replicas"  # Upstream doesn't specify, and only 1 is currently needed.
   - "no-rolling-update-strategy"  # Upstream doesn't include strategy.
+  - "dnsconfig-options"
+  - "no-node-affinity"
