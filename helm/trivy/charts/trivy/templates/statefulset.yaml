@@ -63,26 +63,6 @@ spec:
       affinity:
 {{ toYaml .Values.affinity | indent 8 }}
       {{- end }}
-      {{- if .Values.modules.enabled }}
-      initContainers:
-      - name: "install-trivy-modules"
-        image: "{{ template "trivy.imageRef" . }}"
-        command:
-        - "/bin/sh"
-        args:
-        - "-c"
-        - "for i in $TRIVY_MODULES;do trivy module install $i;done"
-        env:
-        - name: TRIVY_MODULES
-          value: "{{- range .Values.modules.urls }}{{ . }} {{ end -}}"
-        volumeMounts:
-        - mountPath: /tmp
-          name: tmp-data
-          readOnly: false
-        - mountPath: /.trivy/modules
-          name: modules
-          readOnly: false
-      {{- end}}
       containers:
         - name: main
           image: {{ template "trivy.imageRef" . }}
@@ -143,11 +123,6 @@ spec:
             - mountPath: /home/scanner/.cache
               name: data
               readOnly: false
-            {{- if .Values.modules.enabled }}
-            - mountPath: /.trivy/modules
-              name: modules
-              readOnly: false
-            {{- end }}
           {{- if .Values.resources }}
           resources:
 {{ toYaml .Values.resources | indent 12 }}
@@ -157,9 +132,5 @@ spec:
           emptyDir: {}
         {{- if not .Values.persistence.enabled }}
         - name: data
-          emptyDir: {}
-        {{- end }}
-        {{- if .Values.modules.enabled }}
-        - name: modules
           emptyDir: {}
         {{- end }}
