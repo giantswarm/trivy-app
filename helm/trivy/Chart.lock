@@ -1,0 +1,6 @@
+dependencies:
+- name: trivy
+  repository: ""
+  version: 0.7.0
+digest: sha256:5766b32fb3e45826ace93634e0dd8fddd0b786521893a44ebd26fc10ac4273ab
+generated: "2023-03-15T22:03:29.837268694Z"

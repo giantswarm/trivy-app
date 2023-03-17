@@ -8,6 +8,8 @@ verticalPodAutoscaler:
   enabled: true
 
 trivy:
+  rbac:
+    pspEnabled: true
   image:
     registry: docker.io
     repository: giantswarm/trivy

@@ -8,12 +8,12 @@ engine: gotpl
 home: https://github.com/giantswarm/trivy-app
 icon: https://s.giantswarm.io/app-icons/trivy/1/light.svg
 maintainers:
-- name: Giant Swarm applications team
-  url: https://github.com/giantswarm/trivy-app
+  - name: Giant Swarm applications team
+    url: https://github.com/giantswarm/trivy-app
 name: trivy
 sources:
-- https://github.com/giantswarm/trivy-app
-version: [[ .Version ]]
+  - https://github.com/giantswarm/trivy-app
+version: 0.7.1
 dependencies:
-- name: trivy
-  version: 0.4.17
+  - name: trivy
+    version: 0.7.0
