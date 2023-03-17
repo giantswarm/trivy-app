@@ -7,9 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Update to upstream version `0.7.0`/app version `0.37.2`.
+
 ## [0.7.1] - 2022-11-21
 
-### Changes
+### Changed
 
 - Adds `VerticalPodAutoscaler` to `trivy`
 
