@@ -2,6 +2,14 @@
     "$schema": "http://json-schema.org/schema#",
     "type": "object",
     "properties": {
+        "kyvernoPolicyExceptions": {
+            "type": "object",
+            "properties": {
+                "enabled": {
+                    "type": "boolean"
+                }
+            }
+        },
         "networkPolicy": {
             "type": "object",
             "properties": {
@@ -18,14 +26,6 @@
                             "type": "object"
                         }
                     }
-                }
-            }
-        },
-        "verticalPodAutoscaler": {
-            "type": "object",
-            "properties": {
-                "enabled": {
-                    "type": "boolean"
                 }
             }
         },
@@ -57,6 +57,14 @@
                         }
                     }
                 },
+                "rbac": {
+                    "type": "object",
+                    "properties": {
+                        "pspEnabled": {
+                            "type": "boolean"
+                        }
+                    }
+                },
                 "service": {
                     "type": "object",
                     "properties": {
@@ -64,6 +72,14 @@
                             "type": ["integer", "null"]
                         }
                     }
+                }
+            }
+        },
+        "verticalPodAutoscaler": {
+            "type": "object",
+            "properties": {
+                "enabled": {
+                    "type": "boolean"
                 }
             }
         }

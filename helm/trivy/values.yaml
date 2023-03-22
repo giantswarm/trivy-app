@@ -7,6 +7,9 @@ networkPolicy:
 verticalPodAutoscaler:
   enabled: true
 
+kyvernoPolicyExceptions:
+  enabled: true
+
 trivy:
   rbac:
     pspEnabled: true
