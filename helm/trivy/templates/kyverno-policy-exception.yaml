@@ -24,11 +24,16 @@ spec:
     - resources:
         kinds:
         - StatefulSet
-        - Pod
         namespaces:
         - {{ .Release.Namespace }}
         names:
         - {{ include "trivy.fullname" . }}
+    - resources:
+        kinds:
+        - Pod
+        namespaces:
+        - {{ .Release.Namespace }}
+        names:
         - {{ include "trivy.fullname" . }}-*
   {{- end -}}
 {{- end -}}

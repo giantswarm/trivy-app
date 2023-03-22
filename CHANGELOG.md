@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Added Kyverno `PolicyException` for `trivy-app`
+- Added Kyverno `PolicyException` for `trivy-app`.
 
 ## [0.8.0] - 2023-03-17
 
