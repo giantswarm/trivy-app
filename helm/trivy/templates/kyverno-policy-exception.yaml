@@ -4,7 +4,11 @@ apiVersion: kyverno.io/v2alpha1
 kind: PolicyException
 metadata:
   name: {{ include "trivy.fullname" . }}-exception
-  namespace: kyverno
+  {{- if .Values.kyvernoPolicyExceptions.namespace }}
+  namespace: {{ .Values.kyvernoPolicyExceptions.namespace }}
+  {{- else }}
+  namespace: {{ .Release.Namespace }}
+  {{- end }}
 spec:
   exceptions:
   - policyName: disallow-capabilities-strict
@@ -20,6 +24,7 @@ spec:
     - resources:
         kinds:
         - StatefulSet
+        - Pod
         namespaces:
         - {{ .Release.Namespace }}
         names:
