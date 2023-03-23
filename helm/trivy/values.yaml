@@ -21,3 +21,6 @@ trivy:
     enabled: false
     urls:
     - ghcr.io/aquasecurity/trivy-module-spring4shell
+
+ciliumNetworkPolicy:
+  enabled: false
