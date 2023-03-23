@@ -11,10 +11,6 @@ spec:
     ruleNames:
     - require-drop-all
     - autogen-require-drop-all
-  - policyName: disallow-privilege-escalation
-    ruleNames:
-    - privilege-escalation
-    - autogen-privilege-escalation
   - policyName: restrict-seccomp-strict
     ruleNames:
     - check-seccomp-strict
@@ -28,12 +24,5 @@ spec:
         - {{ .Release.Namespace }}
         names:
         - {{ include "trivy.fullname" . }}
-    - resources:
-        kinds:
-        - Pod
-        namespaces:
-        - {{ .Release.Namespace }}
-        names:
-        - {{ include "trivy.fullname" . }}-*
   {{- end -}}
 {{- end -}}

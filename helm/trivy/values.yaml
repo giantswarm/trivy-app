@@ -11,9 +11,6 @@ verticalPodAutoscaler:
 kyvernoPolicyExceptions:
   enabled: true
 
-pspAnnotations:
-  seccomp.security.alpha.kubernetes.io/allowedProfileNames: 'runtime/default'
-
 trivy:
   rbac:
     pspEnabled: true
@@ -32,11 +29,3 @@ trivy:
     privileged: false
     readOnlyRootFilesystem: true
     allowPrivilegeEscalation: false
-    seccompProfile:
-      type: RuntimeDefault
-  podSecurityContext:
-    runAsUser: 65534
-    runAsNonRoot: true
-    fsGroup: 65534
-    seccompProfile:
-      type: RuntimeDefault
