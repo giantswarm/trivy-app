@@ -7,6 +7,11 @@ networkPolicy:
 verticalPodAutoscaler:
   enabled: true
 
+# Enable Kyverno PolicyException
+kyvernoPolicyExceptions:
+  enabled: true
+  namespace: ""
+
 trivy:
   rbac:
     pspEnabled: true
@@ -21,3 +26,7 @@ trivy:
     enabled: false
     urls:
     - ghcr.io/aquasecurity/trivy-module-spring4shell
+  securityContext:
+    privileged: false
+    readOnlyRootFilesystem: true
+    allowPrivilegeEscalation: false
