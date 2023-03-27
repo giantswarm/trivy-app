@@ -28,7 +28,6 @@ spec:
         namespaces:
         - {{ .Release.Namespace }}
         names:
-        - {{ include "trivy.fullname" . }}
-        - {{ include "trivy.fullname" . }}-*
+        - {{ include "trivy.fullname" . }}*
   {{- end -}}
 {{- end -}}
