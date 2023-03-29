@@ -12,6 +12,10 @@ kyvernoPolicyExceptions:
   enabled: true
   namespace: ""
 
+image:
+  registry: docker.io
+  repository: giantswarm/trivy
+
 trivy:
   rbac:
     pspEnabled: true
