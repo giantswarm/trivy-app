@@ -12,15 +12,15 @@ kyvernoPolicyExceptions:
   enabled: true
   namespace: ""
 
-image:
-  registry: docker.io
-  repository: giantswarm/trivy
+# image:
+#   registry: docker.io
+#   repository: giantswarm/trivy
 
 trivy:
   rbac:
     pspEnabled: true
   image:
-    registry: docker.io
+    registry: quay.io
     repository: giantswarm/trivy
     # Tag must also be updated to match in trivy-operator-app
     # If not set here, the image version is taken from the appVersion of the upstream chart.
