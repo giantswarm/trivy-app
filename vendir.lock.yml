@@ -2,11 +2,11 @@ apiVersion: vendir.k14s.io/v1alpha1
 directories:
 - contents:
   - git:
-      commitTitle: 'chore(deps): bump github.com/moby/buildkit from 0.11.0 to 0.11.4
-        (#3789)...'
-      sha: 800473a8bcd36b8ec83eeb643e01e4822c5fe712
+      commitTitle: 'chore(deps): bump github.com/aws/aws-sdk-go-v2/service/ec2 from
+        1.86.1 to 1.89.1 (#3827)...'
+      sha: a12f58be57931c13b5ba9016bc8afd52bd63d3ae
       tags:
-      - v0.38.2
+      - v0.38.3
     path: .
   path: helm/trivy/charts
 kind: LockConfig
