@@ -23,5 +23,5 @@ spec:
         - cluster
       toPorts:
         - ports:
-            - port: "{{ .Values.trivy.service.port | default 4954 }}""
+            - port: "{{ .Values.trivy.service.port | default 4954 }}"
 {{ end }}
