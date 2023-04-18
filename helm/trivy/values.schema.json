@@ -10,6 +10,17 @@
                 }
             }
         },
+        "kyvernoPolicyExceptions": {
+            "type": "object",
+            "properties": {
+                "enabled": {
+                    "type": "boolean"
+                },
+                "namespace": {
+                    "type": "string"
+                }
+            }
+        },
         "networkPolicy": {
             "type": "object",
             "properties": {
@@ -61,6 +72,20 @@
                     "type": "object",
                     "properties": {
                         "pspEnabled": {
+                            "type": "boolean"
+                        }
+                    }
+                },
+                "securityContext": {
+                    "type": "object",
+                    "properties": {
+                        "allowPrivilegeEscalation": {
+                            "type": "boolean"
+                        },
+                        "privileged": {
+                            "type": "boolean"
+                        },
+                        "readOnlyRootFilesystem": {
                             "type": "boolean"
                         }
                     }
