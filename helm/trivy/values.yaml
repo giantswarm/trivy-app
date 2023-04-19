@@ -4,6 +4,9 @@ networkPolicy:
     namespaceSelector: {}
     podSelector: {}
 
+ciliumNetworkPolicy:
+  enabled: true
+
 verticalPodAutoscaler:
   enabled: true
 

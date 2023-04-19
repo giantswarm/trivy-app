@@ -1,0 +1,29 @@
+{{ if .Values.ciliumNetworkPolicy.enabled }}
+{{- if .Capabilities.APIVersions.Has "cilium.io/v2" -}}
+apiVersion: "cilium.io/v2"
+kind: CiliumNetworkPolicy
+metadata:
+  namespace: {{ .Release.Namespace }}
+  name: {{ include "trivy.fullname" . }}
+  labels:
+    {{- include "trivy.labels" . | nindent 4 }}
+spec:
+  endpointSelector:
+    matchLabels:
+      {{- include "labels.selector" . | nindent 6 }}
+  egress:
+    - toEntities:
+        - world
+    - toEntities:
+        - cluster
+      toPorts:
+        - ports:
+            - port: "53"
+  ingress:
+    - fromEntities:
+        - cluster
+      toPorts:
+        - ports:
+            - port: "{{ .Values.trivy.service.port | default 4954 }}"
+{{ end }}
+{{ end }}
