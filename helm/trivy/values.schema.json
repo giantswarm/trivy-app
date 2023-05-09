@@ -103,8 +103,16 @@
         "verticalPodAutoscaler": {
             "type": "object",
             "properties": {
-                "enabled": {
-                    "type": "boolean"
+                "trivy": {
+                    "type": "object",
+                    "properties": {
+                        "containerPolicies": {
+                            "type": "object"
+                        },
+                        "enabled": {
+                            "type": "boolean"
+                        }
+                    }
                 }
             }
         }
