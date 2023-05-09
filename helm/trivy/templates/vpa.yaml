@@ -1,5 +1,5 @@
 {{- if .Capabilities.APIVersions.Has "autoscaling.k8s.io/v1" -}}
-{{- if .Values.verticalPodAutoscaler.enabled -}}
+{{- if .Values.verticalPodAutoscaler.trivy.enabled -}}
 apiVersion: autoscaling.k8s.io/v1
 kind: VerticalPodAutoscaler
 metadata:
@@ -9,7 +9,12 @@ metadata:
 spec:
   resourcePolicy:
     containerPolicies:
-    - containerName: main
+    - containerName: 'main'
+    {{- if .Values.verticalPodAutoscaler.trivy.containerPolicies }}
+      {{- with .Values.verticalPodAutoscaler.trivy.containerPolicies -}}
+        {{ tpl (toYaml .) $ | nindent 6 }}
+      {{- end }}
+    {{- end }}
   targetRef:
     apiVersion: "apps/v1"
     kind:       StatefulSet

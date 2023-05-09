@@ -8,7 +8,9 @@ ciliumNetworkPolicy:
   enabled: true
 
 verticalPodAutoscaler:
-  enabled: true
+  trivy:
+    enabled: true
+    containerPolicies: {}
 
 # Enable Kyverno PolicyException
 kyvernoPolicyExceptions:

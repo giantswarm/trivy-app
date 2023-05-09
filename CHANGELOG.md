@@ -12,6 +12,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add `Cilium Network Policy` to `trivy`.
 - Added Kyverno `PolicyException` for `trivy-app`.
 
+### Changed
+
+- Modified the `VerticalPodAutoscaler` to make the Container Policies configurable.
+- Moved the `VerticalPodAutoscaler.enabled` flag to `VerticalPodAutoscaler.trivy.enabled` to align with other Apps.
+
 ## [0.8.0] - 2023-03-17
 
 ### Changed
