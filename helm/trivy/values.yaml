@@ -13,7 +13,7 @@ verticalPodAutoscaler:
 # Enable Kyverno PolicyException
 kyvernoPolicyExceptions:
   enabled: true
-  namespace: ""
+  namespace: giantswarm
 
 trivy:
   rbac:
