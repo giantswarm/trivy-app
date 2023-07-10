@@ -2,11 +2,11 @@ apiVersion: vendir.k14s.io/v1alpha1
 directories:
 - contents:
   - git:
-      commitTitle: 'feat(flag): Support globstar for `--skip-files` and `--skip-directories`
-        (#4026)...'
-      sha: b43b19ba54cbf30adfaf98febccef033701a1df3
+      commitTitle: 'chore(deps): bump github.com/sigstore/rekor from 1.2.0 to 1.2.1
+        (#4533)'
+      sha: 854b63940a530155b70c94787c34d922ee2ef4b4
       tags:
-      - v0.40.0
+      - v0.42.0
     path: .
   path: helm/trivy/charts
 kind: LockConfig
