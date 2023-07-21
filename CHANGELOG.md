@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Add `serviceMonitor` to `trivy`.
+
+### Changed
+
+- Changed `service`,`CiliumNetworkPolicy`, `networkPolicy`, `values,yaml` to accomodate the service-monitor.
+
 ## [0.8.1] - 2023-05-09
 
 ### Added

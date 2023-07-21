@@ -25,5 +25,6 @@ spec:
       toPorts:
         - ports:
             - port: "{{ .Values.trivy.service.port | default 4954 }}"
+            - port: "8000"
 {{ end }}
 {{ end }}

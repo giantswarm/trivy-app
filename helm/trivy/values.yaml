@@ -35,3 +35,10 @@ trivy:
     privileged: false
     readOnlyRootFilesystem: true
     allowPrivilegeEscalation: false
+
+serviceMonitor:
+  enabled: true
+  # -- (duration) Prometheus scrape interval.
+  interval: "60s"
+  # -- (duration) Prometheus scrape timeout.
+  scrapeTimeout: "45s"
