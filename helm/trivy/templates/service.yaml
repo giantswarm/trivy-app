@@ -14,6 +14,6 @@ spec:
       protocol: TCP
       port: {{ .Values.service.port | default 4954 }}
       targetPort: {{ .Values.service.port | default 4954 }}
-    - name: service-monitor-http
+    - name: metrics
       port: 8000
   sessionAffinity: ClientIP
