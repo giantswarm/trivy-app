@@ -18,7 +18,7 @@ spec:
         - cluster
       toPorts:
         - ports:
-            - port: "53"
+            - port: "1053"
   ingress:
     - fromEntities:
         - cluster
