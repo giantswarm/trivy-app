@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Bring back port 53 in network policies to download database.
+
 ## [0.8.2] - 2023-08-22
 
 ### Fixed
