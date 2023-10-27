@@ -11,6 +11,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Bump Trivy to v0.45.1
 
+## [0.8.3] - 2023-09-10
+
 ### Fixed
 
 - Bring back port 53 in network policies to download database.
@@ -105,7 +107,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Initial trivy resources.
 - Basic NetworkPolicy resources.
 
-[Unreleased]: https://github.com/giantswarm/trivy-app/compare/v0.8.2...HEAD
+[Unreleased]: https://github.com/giantswarm/trivy-app/compare/v0.8.3...HEAD
+[0.8.3]: https://github.com/giantswarm/trivy-app/compare/v0.8.2...v0.8.3
 [0.8.2]: https://github.com/giantswarm/trivy-app/compare/v0.8.2...v0.8.2
 [0.8.2]: https://github.com/giantswarm/trivy-app/compare/v0.8.1...v0.8.2
 [0.8.1]: https://github.com/giantswarm/trivy-app/compare/v0.8.0...v0.8.1
