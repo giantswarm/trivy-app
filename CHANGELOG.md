@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Bump Trivy to v0.45.1
+
 ### Fixed
 
 - Bring back port 53 in network policies to download database.
