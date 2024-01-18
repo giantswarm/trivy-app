@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Bump Trivy to v0.48.3
+
 ## [0.9.0] - 2023-10-27
 
 ### Changed
