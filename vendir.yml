@@ -6,7 +6,7 @@ directories:
   - path: .
     git:
       url: https://github.com/giantswarm/trivy-upstream
-      ref: v0.38.2
+      ref: v0.48.3
     includePaths:
       - helm/**/*
     newRootPath: helm
