@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.10.0] - 2024-01-24
+
 ### Changed
 
 - Configure `gsoci.azurecr.io` as the default container image registry.
@@ -114,7 +116,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Initial trivy resources.
 - Basic NetworkPolicy resources.
 
-[Unreleased]: https://github.com/giantswarm/trivy-app/compare/v0.9.0...HEAD
+[Unreleased]: https://github.com/giantswarm/trivy-app/compare/v0.10.0...HEAD
+[0.10.0]: https://github.com/giantswarm/trivy-app/compare/v0.9.0...v0.10.0
 [0.9.0]: https://github.com/giantswarm/trivy-app/compare/v0.8.3...v0.9.0
 [0.8.3]: https://github.com/giantswarm/trivy-app/compare/v0.8.2...v0.8.3
 [0.8.2]: https://github.com/giantswarm/trivy-app/compare/v0.8.2...v0.8.2
