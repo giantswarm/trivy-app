@@ -54,6 +54,9 @@
                         }
                     }
                 },
+                "labels": {
+                    "type": "object"
+                },
                 "modules": {
                     "type": "object",
                     "properties": {
