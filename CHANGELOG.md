@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Remove feature gate from PolicyException and bump it to v2beta1.
+
 ## [0.11.0] - 2024-04-16
 
 ### Changed
