@@ -19,7 +19,7 @@ kyvernoPolicyExceptions:
 
 trivy:
   rbac:
-    pspEnabled: true
+    pspEnabled: false
   image:
     registry: gsoci.azurecr.io
     repository: giantswarm/trivy
