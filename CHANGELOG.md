@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Update `Trivy` to upstream version v0.56.1.
+- Disable PSPs.
+
 ## [0.12.0] - 2024-06-06
 
 ### Changed
