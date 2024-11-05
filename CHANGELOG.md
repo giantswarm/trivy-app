@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Use retagged image for `trivy-db`.
+
 ## [0.13.0] - 2024-10-23
 
 ### Changed
