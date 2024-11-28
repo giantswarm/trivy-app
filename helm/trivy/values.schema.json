@@ -55,7 +55,20 @@
                     }
                 },
                 "labels": {
-                    "type": "object"
+                    "type": "object",
+                    "properties": {
+                        "application.giantswarm.io/team": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "livenessProbe": {
+                    "type": "object",
+                    "properties": {
+                        "initialDelaySeconds": {
+                            "type": "integer"
+                        }
+                    }
                 },
                 "modules": {
                     "type": "object",
@@ -97,7 +110,15 @@
                     "type": "object",
                     "properties": {
                         "port": {
-                            "type": ["integer", "null"]
+                            "type": "null"
+                        }
+                    }
+                },
+                "trivy": {
+                    "type": "object",
+                    "properties": {
+                        "dbRepository": {
+                            "type": "string"
                         }
                     }
                 }
