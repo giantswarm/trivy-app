@@ -110,7 +110,7 @@
                     "type": "object",
                     "properties": {
                         "port": {
-                            "type": "integer"
+                            "type": ["integer", "null"]
                         }
                     }
                 },
