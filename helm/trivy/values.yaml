@@ -38,5 +38,10 @@ trivy:
     readOnlyRootFilesystem: true
     allowPrivilegeEscalation: false
 
+  # Allow Trivy to download the database before being killed. In some cases the conection to gsoci can be slow and take longer than the default
+  # Maybe we can remove this once we have Zot
+  livenessProbe:
+    initialDelaySeconds: 300
+
   trivy:
     dbRepository: gsoci.azurecr.io/giantswarm/trivy-db
