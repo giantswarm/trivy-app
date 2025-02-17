@@ -28,7 +28,7 @@ spec:
   ingress:
     - fromEndpoints:
       - matchLabels:
-          vulnerabilityreport.scanner: Trivy
+          io.kubernetes.pod.namespace: {{ .Release.Namespace }}
       toPorts:
         - ports:
             - port: "{{ .Values.trivy.service.port | default 4954 }}"
