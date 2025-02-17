@@ -26,8 +26,9 @@ spec:
             - port: "1053"
             - port: "53"
   ingress:
-    - fromEntities:
-        - cluster
+    - fromEndpoints:
+      - matchLabels:
+          vulnerabilityreport.scanner: Trivy
       toPorts:
         - ports:
             - port: "{{ .Values.trivy.service.port | default 4954 }}"

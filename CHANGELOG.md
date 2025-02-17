@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Narrow down CiliumNetworkPolicy egress rule to match DNS service only.
+- Narrow down CiliumNetworkPolicy ingress rule to match `trivy-operator` only.
 
 ## [0.13.1] - 2024-11-05
 
