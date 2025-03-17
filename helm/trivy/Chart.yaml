@@ -13,7 +13,7 @@ maintainers:
 name: trivy
 sources:
   - https://github.com/giantswarm/trivy-app
-version: 0.13.3
+version: 0.13.4
 dependencies:
   - name: trivy
     version: 0.8.0
