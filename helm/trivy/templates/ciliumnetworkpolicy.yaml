@@ -14,15 +14,21 @@ spec:
   egress:
     - toEntities:
         - world
-    - toEntities:
-        - cluster
+    - toEndpoints:
+      - matchLabels:
+          io.kubernetes.pod.namespace: kube-system
+          k8s-app: coredns
+      - matchLabels:
+          io.kubernetes.pod.namespace: kube-system
+          k8s-app: k8s-dns-node-cache
       toPorts:
         - ports:
             - port: "1053"
             - port: "53"
   ingress:
-    - fromEntities:
-        - cluster
+    - fromEndpoints:
+      - matchLabels:
+          io.kubernetes.pod.namespace: {{ .Release.Namespace }}
       toPorts:
         - ports:
             - port: "{{ .Values.trivy.service.port | default 4954 }}"
