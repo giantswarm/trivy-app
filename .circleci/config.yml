@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  architect: giantswarm/architect@dev:f1491d5dadbe8b5f983e06df48c2b111e74d28e7
+  architect: giantswarm/architect@dev:87ad3372f4c7bd7202d1995fd90bc48b96c77b1d
 
 workflows:
   package-and-push-chart-on-tag:
@@ -51,8 +51,6 @@ workflows:
               ignore:
                 - master
                 - main
-          requires:
-            - push-trivy-to-giantswarm-catalog
 
       # Push trivy to app collections
       - architect/push-to-app-collection:
