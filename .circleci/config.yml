@@ -43,6 +43,8 @@ workflows:
       - architect/run-kyverno-tests:
           name: execute kyverno policy evaluation 
           chart: "trivy"
+          kyverno-policies_version: 0.23.0
+          kyverno_version: 1.13.4
           filters:
             # Do not trigger the job on merge to master.
             branches:
