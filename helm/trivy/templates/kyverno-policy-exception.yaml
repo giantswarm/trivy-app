@@ -20,6 +20,10 @@ spec:
     ruleNames:
     - check-seccomp-strict
     - autogen-check-seccomp-strict
+  - policyName: require-emptydir-requests-and-limits
+    ruleNames:
+    - autogen-check-emptydir-requests-limits
+    - check-emptydir-requests-limits
   match:
     any:
     - resources:
