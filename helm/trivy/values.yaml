@@ -47,6 +47,12 @@ trivy:
     privileged: false
     readOnlyRootFilesystem: true
     allowPrivilegeEscalation: false
+    seccompProfile:
+      type: "RuntimeDefault"
+  
+  podSecurityContext:
+    seccompProfile:
+      type: "RuntimeDefault"
 
   # Allow Trivy to download the database before being killed. In some cases the conection to gsoci can be slow and take longer than the default
   # Maybe we can remove this once we have Zot
