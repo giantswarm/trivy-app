@@ -16,10 +16,6 @@ spec:
     ruleNames:
     - require-drop-all
     - autogen-require-drop-all
-  - policyName: restrict-seccomp-strict
-    ruleNames:
-    - autogen-check-seccomp-strict
-    - check-seccomp-strict
   match:
     any:
     - resources:
