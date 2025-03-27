@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  architect: giantswarm/architect@dev:87ad3372f4c7bd7202d1995fd90bc48b96c77b1d
+  architect: giantswarm/architect@dev:bfd8198e9d08ccbb7f38c721509070d0d1f3cfbe
 
 workflows:
   package-and-push-chart-on-tag:
