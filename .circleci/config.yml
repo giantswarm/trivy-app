@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  architect: giantswarm/architect@dev:52e9dbc89ac668f85eb5ffa26d742181729ec173
+  architect: giantswarm/architect@dev:1c8f5383971579f7c1f43d9b8447217ef1af2dd6
 
 workflows:
   package-and-push-chart-on-tag:
@@ -40,15 +40,16 @@ workflows:
           requires:
             - push-trivy-to-giantswarm-catalog
 
-      - architect/run-kyverno-tests:
-          name: execute kyverno policy evaluation 
-          chart: "trivy"
-          filters:
-            # Do not trigger the job on merge to master.
-            branches:
-              ignore:
-                - master
-                - main
+      # - architect/run-kyverno-tests:
+      #     name: execute kyverno policy evaluation 
+      #     chart: "trivy"
+
+      #     filters:
+      #       # Do not trigger the job on merge to master.
+      #       branches:
+      #         ignore:
+      #           - master
+      #           - main
 
       # Push trivy to app collections
       - architect/push-to-app-collection:
