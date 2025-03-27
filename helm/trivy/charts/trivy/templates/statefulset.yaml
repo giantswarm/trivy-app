@@ -157,7 +157,6 @@ spec:
       volumes:
         - name: tmp-data
           emptyDir: {}
-          sizeLimit: 500Mi
         {{- if not .Values.persistence.enabled }}
         - name: data
           emptyDir: {}
@@ -165,5 +164,4 @@ spec:
         {{- if .Values.modules.enabled }}
         - name: modules
           emptyDir: {}
-          sizeLimit: 500Mi
         {{- end }}
