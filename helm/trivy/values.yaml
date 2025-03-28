@@ -18,6 +18,16 @@ kyvernoPolicyExceptions:
   namespace: giantswarm
 
 trivy:
+  resources:
+    requests:
+      cpu: 200m
+      memory: 512Mi
+      ephemeral-storage: 100Mi
+    limits:
+      cpu: 1
+      memory: 1Gi
+      ephemeral-storage: 1Gi
+
   rbac:
     pspEnabled: false
   image:
@@ -37,6 +47,12 @@ trivy:
     privileged: false
     readOnlyRootFilesystem: true
     allowPrivilegeEscalation: false
+    seccompProfile:
+      type: "RuntimeDefault"
+
+  podSecurityContext:
+    seccompProfile:
+      type: "RuntimeDefault"
 
   # Allow Trivy to download the database before being killed. In some cases the conection to gsoci can be slow and take longer than the default
   # Maybe we can remove this once we have Zot

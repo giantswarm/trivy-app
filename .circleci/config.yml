@@ -37,8 +37,18 @@ workflows:
             branches:
               ignore:
                 - master
+                - main
           requires:
             - push-trivy-to-giantswarm-catalog
+
+      - architect/run-kyverno-tests:
+          name: execute kyverno policy evaluation 
+          filters:
+            # Do not trigger the job on merge to master.
+            branches:
+              ignore:
+                - master
+                - main
 
       # Push trivy to app collections
       - architect/push-to-app-collection:
