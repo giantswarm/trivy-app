@@ -49,7 +49,7 @@ trivy:
     allowPrivilegeEscalation: false
     seccompProfile:
       type: "RuntimeDefault"
-  
+
   podSecurityContext:
     seccompProfile:
       type: "RuntimeDefault"
