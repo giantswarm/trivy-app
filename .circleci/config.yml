@@ -40,35 +40,6 @@ workflows:
           requires:
             - push-trivy-to-giantswarm-catalog
 
-      # Push trivy to app collections
-      - architect/push-to-app-collection:
-          context: "architect"
-          name: push-trivy-to-aws-app-collection
-          app_name: "trivy"
-          app_collection_repo: "aws-app-collection"
-          requires:
-            - push-trivy-to-control-plane-catalog
-          filters:
-            # Only do this when a new tag is created.
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^v.*/
-
-      - architect/push-to-app-collection:
-          context: "architect"
-          name: push-trivy-to-azure-app-collection
-          app_name: "trivy"
-          app_collection_repo: "azure-app-collection"
-          requires:
-            - push-trivy-to-control-plane-catalog
-          filters:
-            # Only do this when a new tag is created.
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^v.*/
-
       - architect/push-to-app-collection:
           context: "architect"
           name: push-trivy-to-capa-app-collection
