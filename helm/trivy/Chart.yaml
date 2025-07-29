@@ -16,4 +16,4 @@ sources:
 version: 0.13.4
 dependencies:
   - name: trivy
-    version: 0.8.0
+    version: 0.15.0
