@@ -27,8 +27,6 @@ trivy:
     # If not set here, the image version is taken from the appVersion of the upstream chart.
   labels:
     application.giantswarm.io/team: "shield"
-  service:
-    port:
   modules:
     enabled: false
     urls:
