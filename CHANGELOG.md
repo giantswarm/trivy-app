@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.14.1] - 2025-09-04
+
 ### Changed
 
 - Remove empty service port value.
@@ -177,7 +179,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Initial trivy resources.
 - Basic NetworkPolicy resources.
 
-[Unreleased]: https://github.com/giantswarm/trivy-app/compare/v0.14.0...HEAD
+[Unreleased]: https://github.com/giantswarm/trivy-app/compare/v0.14.1...HEAD
+[0.14.1]: https://github.com/giantswarm/trivy-app/compare/v0.14.0...v0.14.1
 [0.14.0]: https://github.com/giantswarm/trivy-app/compare/v0.13.4...v0.14.0
 [0.13.4]: https://github.com/giantswarm/trivy-app/compare/v0.13.3...v0.13.4
 [0.13.3]: https://github.com/giantswarm/trivy-app/compare/v0.13.2...v0.13.3
