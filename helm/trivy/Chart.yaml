@@ -1,10 +1,9 @@
 apiVersion: v2
 appVersion: 0.63.0
 annotations:
-  application.giantswarm.io/team: "shield"
-  config.giantswarm.io/version: 1.x.x
   io.giantswarm.application.audience: all
   io.giantswarm.application.managed: "true"
+  io.giantswarm.application.team: shield
 description: A Helm chart for trivy
 engine: gotpl
 home: https://github.com/giantswarm/trivy-app
