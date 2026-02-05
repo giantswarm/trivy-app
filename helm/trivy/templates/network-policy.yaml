@@ -35,16 +35,8 @@ spec:
     - ports:
         - port: {{ .Values.trivy.service.port | default 4954 }}
           protocol: TCP
-  # {{- if .Values.networkPolicy.ingress.namespaceSelector }}
-  #     from:
-  #       - namespaceSelector:
-  #         {{- toYaml .Values.networkPolicy.ingress.namespaceSelector | nindent 12 }}
-  #         {{- if .Values.networkPolicy.ingress.podSelector }}
-  #         podSelector:
-  #         {{- toYaml .Values.networkPolicy.ingress.podSelector | nindent 12 }}
-  #         {{- end }}
-  # {{- else }}
-          from:
-            - namespaceSelector: {{ .Release.Namespace }}
-  # {{- end }}
+      from:
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: {{ .Release.Namespace }}
 {{- end }}
