@@ -9,3 +9,5 @@ checks:
   - "no-rolling-update-strategy"  # Upstream doesn't include strategy.
   - "dnsconfig-options"
   - "no-node-affinity"
+  - "sorted-keys"  # Vendored upstream chart has unsorted keys, not worth fixing.
+  - "restart-policy"  # Vendored upstream StatefulSet doesn't set explicit restartPolicy (defaults to Always).
