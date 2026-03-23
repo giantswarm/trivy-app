@@ -4,7 +4,23 @@
     "github>giantswarm/renovate-presets:lang-go.json5",
     "github>giantswarm/renovate-presets:disable-vendir.json5"
   ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "fileMatch": ["(^|/)vendir\\.yml$"],
+      "matchStrings": [
+        "# renovate: datasource=(?<datasource>[^\\s]+) depName=(?<depName>[^\\n]+)\\n\\s+ref: (?<currentValue>[^\\n]+)"
+      ]
+    }
+  ],
   "packageRules": [
+    {
+      "matchFileNames": ["vendir.yml"],
+      "branchPrefix": "renovate/vendir/",
+      "prCreation": "approval",
+      "groupName": "trivy-upstream",
+      "separateMajorMinor": false
+    },
     {
       "description": "Automerge architect updates",
       "matchFileNames": [

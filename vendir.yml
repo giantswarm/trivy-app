@@ -5,7 +5,8 @@ directories:
   contents:
   - path: .
     git:
-      url: https://github.com/giantswarm/trivy-upstream
+      url: https://github.com/aquasecurity/trivy
+      # renovate: datasource=github-tags depName=aquasecurity/trivy
       ref: v0.64.1
     includePaths:
       - helm/**/*
