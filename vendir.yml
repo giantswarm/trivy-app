@@ -1,0 +1,13 @@
+apiVersion: vendir.k14s.io/v1alpha1
+kind: Config
+directories:
+- path: helm/trivy/charts
+  contents:
+  - path: .
+    git:
+      url: https://github.com/aquasecurity/trivy
+      # renovate: datasource=github-tags depName=aquasecurity/trivy
+      ref: v0.64.1
+    includePaths:
+      - helm/**/*
+    newRootPath: helm

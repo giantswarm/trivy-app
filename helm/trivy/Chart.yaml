@@ -1,0 +1,20 @@
+apiVersion: v2
+appVersion: 0.63.0
+annotations:
+  io.giantswarm.application.audience: all
+  io.giantswarm.application.managed: "true"
+  io.giantswarm.application.team: shield
+description: A Helm chart for trivy
+engine: gotpl
+home: https://github.com/giantswarm/trivy-app
+icon: https://s.giantswarm.io/app-icons/trivy/1/light.svg
+maintainers:
+  - name: Giant Swarm applications team
+    url: https://github.com/giantswarm/trivy-app
+name: trivy
+sources:
+  - https://github.com/giantswarm/trivy-app
+version: 0.14.2
+dependencies:
+  - name: trivy
+    version: 0.15.0

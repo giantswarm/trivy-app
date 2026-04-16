@@ -1,0 +1,65 @@
+diff --git a/helm/trivy/charts/trivy/templates/statefulset.yaml b/helm/trivy/charts/trivy/templates/statefulset.yaml
+index 4a931d2..34a85de 100644
+--- a/helm/trivy/charts/trivy/templates/statefulset.yaml
++++ b/helm/trivy/charts/trivy/templates/statefulset.yaml
+@@ -65,6 +65,26 @@ spec:
+       affinity:
+ {{ toYaml .Values.affinity | indent 8 }}
+       {{- end }}
++      {{- if .Values.modules.enabled }}
++      initContainers:
++      - name: "install-trivy-modules"
++        image: "{{ template "trivy.imageRef" . }}"
++        command:
++        - "/bin/sh"
++        args:
++        - "-c"
++        - "for i in $TRIVY_MODULES;do trivy module install $i;done"
++        env:
++        - name: TRIVY_MODULES
++          value: "{{- range .Values.modules.urls }}{{ . }} {{ end -}}"
++        volumeMounts:
++        - mountPath: /tmp
++          name: tmp-data
++          readOnly: false
++        - mountPath: /.trivy/modules
++          name: modules
++          readOnly: false
++      {{- end}}
+       containers:
+         - name: main
+           image: {{ template "trivy.imageRef" . }}
+@@ -125,6 +145,11 @@ spec:
+             - mountPath: /home/scanner/.cache
+               name: data
+               readOnly: false
++            {{- if .Values.modules.enabled }}
++            - mountPath: /.trivy/modules
++              name: modules
++              readOnly: false
++            {{- end }}
+           {{- if .Values.resources }}
+           resources:
+ {{ toYaml .Values.resources | indent 12 }}
+@@ -136,3 +161,7 @@ spec:
+         - name: data
+           emptyDir: {}
+         {{- end }}
++        {{- if .Values.modules.enabled }}
++        - name: modules
++          emptyDir: {}
++        {{- end }}
+diff --git a/helm/trivy/charts/trivy/values.yaml b/helm/trivy/charts/trivy/values.yaml
+index a969f10..4463c5a 100644
+--- a/helm/trivy/charts/trivy/values.yaml
++++ b/helm/trivy/charts/trivy/values.yaml
+@@ -161,3 +161,9 @@ httpProxy:
+ httpsProxy:
+ # noProxy the URLs that the proxy settings do not apply to
+ noProxy:
++
++modules:
++  enabled: false
++  urls:
++#  - ghcr.io/aquasecurity/trivy-module-spring4shell
++#  - ghcr.io/aquasecurity/trivy-module-wordpress
