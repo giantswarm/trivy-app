@@ -25,12 +25,6 @@ trivy:
     repository: giantswarm/trivy
     # Tag must also be updated to match in trivy-operator-app
     # If not set here, the image version is taken from the appVersion of the upstream chart.
-  labels:
-    application.giantswarm.io/team: "shield"
-  modules:
-    enabled: false
-    urls:
-      - ghcr.io/aquasecurity/trivy-module-spring4shell
   securityContext:
     privileged: false
     readOnlyRootFilesystem: true
@@ -38,8 +32,6 @@ trivy:
 
   # Allow Trivy to download the database before being killed. In some cases the conection to gsoci can be slow and take longer than the default
   # Maybe we can remove this once we have Zot
-  livenessProbe:
-    initialDelaySeconds: 300
 
   trivy:
     dbRepository: gsoci.azurecr.io/giantswarm/trivy-db
