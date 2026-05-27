@@ -26,16 +26,5 @@
       groupName: 'trivy-upstream',
       separateMajorMinor: false,
     },
-    {
-      description: 'Automerge architect updates',
-      matchFileNames: [
-        '.circleci/config.yml',
-      ],
-      matchDepNames: [
-        'architect',
-      ],
-      groupName: 'Architect',
-      automerge: true,
-    },
   ],
 }
