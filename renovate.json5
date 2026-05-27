@@ -5,17 +5,6 @@
     'github>giantswarm/renovate-presets:disable-vendir.json5',
     'github>giantswarm/renovate-presets:disable-upstream-charts.json5',
   ],
-  customManagers: [
-    {
-      customType: 'regex',
-      managerFilePatterns: [
-        '/(^|/)vendir\\.yml$/',
-      ],
-      matchStrings: [
-        '# renovate: datasource=(?<datasource>[^\\s]+) depName=(?<depName>[^\\n]+)\\n\\s+ref: (?<currentValue>[^\\n]+)',
-      ],
-    },
-  ],
   packageRules: [
     {
       matchFileNames: [
