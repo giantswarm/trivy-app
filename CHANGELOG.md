@@ -7,17 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.14.2] - 2026-01-30
-
 ### Changed
 
-- Build with up-to-date pipelines.
-- Migrate chart annotations to OCI-compatible format (change `application.giantswarm.io/team` to `io.giantswarm.application.team`, remove `config.giantswarm.io/version`).
+- Updated `trivy` to upstream version `v0.70.0`.
+
+## [0.14.2] - 2026-01-30
 
 ### Added
 
 - Add `io.giantswarm.application.audience` and `io.giantswarm.application.managed` chart annotations for Backstage visibility.
 - Push to the `default` catalog.
+
+### Changed
+
+- Build with up-to-date pipelines.
+- Migrate chart annotations to OCI-compatible format (change `application.giantswarm.io/team` to `io.giantswarm.application.team`, remove `config.giantswarm.io/version`).
 
 ## [0.14.1] - 2025-09-04
 
