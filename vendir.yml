@@ -7,7 +7,7 @@ directories:
     git:
       url: https://github.com/aquasecurity/trivy
       # renovate: datasource=github-tags depName=aquasecurity/trivy
-      ref: v0.71.0
+      ref: v0.71.1
     includePaths:
       - helm/**/*
     newRootPath: helm
