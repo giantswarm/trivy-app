@@ -1,15 +1,28 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "additionalProperties": false,
     "properties": {
         "ciliumNetworkPolicy": {
+            "type": "object",
+            "additionalProperties": false,
             "properties": {
                 "enabled": {
                     "type": "boolean"
                 }
-            },
-            "type": "object"
+            }
+        },
+        "global": {
+            "type": [
+                "object",
+                "null"
+            ],
+            "description": "Global values shared between all subcharts",
+            "$comment": "Added automatically by 'helm schema' to allow this chart to be used as a Helm dependency, as the `additionalProperties` setting would otherwise collide with Helm's special 'global' values key."
         },
         "kyvernoPolicyExceptions": {
+            "type": "object",
+            "additionalProperties": false,
             "properties": {
                 "enabled": {
                     "type": "boolean"
@@ -17,31 +30,38 @@
                 "namespace": {
                     "type": "string"
                 }
-            },
-            "type": "object"
+            }
         },
         "networkPolicy": {
+            "type": "object",
+            "additionalProperties": false,
             "properties": {
                 "enabled": {
                     "type": "boolean"
                 },
                 "ingress": {
+                    "type": "object",
+                    "additionalProperties": false,
                     "properties": {
                         "namespaceSelector": {
-                            "type": "object"
+                            "type": "object",
+                            "additionalProperties": false
                         },
                         "podSelector": {
-                            "type": "object"
+                            "type": "object",
+                            "additionalProperties": false
                         }
-                    },
-                    "type": "object"
+                    }
                 }
-            },
-            "type": "object"
+            }
         },
         "trivy": {
+            "type": "object",
+            "additionalProperties": false,
             "properties": {
                 "image": {
+                    "type": "object",
+                    "additionalProperties": false,
                     "properties": {
                         "registry": {
                             "type": "string"
@@ -49,18 +69,20 @@
                         "repository": {
                             "type": "string"
                         }
-                    },
-                    "type": "object"
+                    }
                 },
                 "rbac": {
+                    "type": "object",
+                    "additionalProperties": false,
                     "properties": {
                         "pspEnabled": {
                             "type": "boolean"
                         }
-                    },
-                    "type": "object"
+                    }
                 },
                 "securityContext": {
+                    "type": "object",
+                    "additionalProperties": false,
                     "properties": {
                         "allowPrivilegeEscalation": {
                             "type": "boolean"
@@ -71,36 +93,37 @@
                         "readOnlyRootFilesystem": {
                             "type": "boolean"
                         }
-                    },
-                    "type": "object"
+                    }
                 },
                 "trivy": {
+                    "type": "object",
+                    "additionalProperties": false,
                     "properties": {
                         "dbRepository": {
                             "type": "string"
                         }
-                    },
-                    "type": "object"
+                    }
                 }
-            },
-            "type": "object"
+            }
         },
         "verticalPodAutoscaler": {
+            "type": "object",
+            "additionalProperties": false,
             "properties": {
                 "trivy": {
+                    "type": "object",
+                    "additionalProperties": false,
                     "properties": {
                         "containerPolicies": {
-                            "type": "object"
+                            "type": "object",
+                            "additionalProperties": false
                         },
                         "enabled": {
                             "type": "boolean"
                         }
-                    },
-                    "type": "object"
+                    }
                 }
-            },
-            "type": "object"
+            }
         }
-    },
-    "type": "object"
+    }
 }
