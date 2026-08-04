@@ -1,15 +1,18 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "additionalProperties": true,
     "properties": {
         "ciliumNetworkPolicy": {
+            "type": "object",
             "properties": {
                 "enabled": {
                     "type": "boolean"
                 }
-            },
-            "type": "object"
+            }
         },
         "kyvernoPolicyExceptions": {
+            "type": "object",
             "properties": {
                 "enabled": {
                     "type": "boolean"
@@ -17,15 +20,16 @@
                 "namespace": {
                     "type": "string"
                 }
-            },
-            "type": "object"
+            }
         },
         "networkPolicy": {
+            "type": "object",
             "properties": {
                 "enabled": {
                     "type": "boolean"
                 },
                 "ingress": {
+                    "type": "object",
                     "properties": {
                         "namespaceSelector": {
                             "type": "object"
@@ -33,15 +37,15 @@
                         "podSelector": {
                             "type": "object"
                         }
-                    },
-                    "type": "object"
+                    }
                 }
-            },
-            "type": "object"
+            }
         },
         "trivy": {
+            "type": "object",
             "properties": {
                 "image": {
+                    "type": "object",
                     "properties": {
                         "registry": {
                             "type": "string"
@@ -49,18 +53,18 @@
                         "repository": {
                             "type": "string"
                         }
-                    },
-                    "type": "object"
+                    }
                 },
                 "rbac": {
+                    "type": "object",
                     "properties": {
                         "pspEnabled": {
                             "type": "boolean"
                         }
-                    },
-                    "type": "object"
+                    }
                 },
                 "securityContext": {
+                    "type": "object",
                     "properties": {
                         "allowPrivilegeEscalation": {
                             "type": "boolean"
@@ -71,23 +75,23 @@
                         "readOnlyRootFilesystem": {
                             "type": "boolean"
                         }
-                    },
-                    "type": "object"
+                    }
                 },
                 "trivy": {
+                    "type": "object",
                     "properties": {
                         "dbRepository": {
                             "type": "string"
                         }
-                    },
-                    "type": "object"
+                    }
                 }
-            },
-            "type": "object"
+            }
         },
         "verticalPodAutoscaler": {
+            "type": "object",
             "properties": {
                 "trivy": {
+                    "type": "object",
                     "properties": {
                         "containerPolicies": {
                             "type": "object"
@@ -95,12 +99,9 @@
                         "enabled": {
                             "type": "boolean"
                         }
-                    },
-                    "type": "object"
+                    }
                 }
-            },
-            "type": "object"
+            }
         }
-    },
-    "type": "object"
+    }
 }
