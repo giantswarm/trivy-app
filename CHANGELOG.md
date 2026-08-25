@@ -9,7 +9,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Updated `trivy` to upstream version `v0.73.0`.
 - Updated `trivy` to upstream version `v0.74.0`.
 
 ## [0.17.0] - 2026-08-05

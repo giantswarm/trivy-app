@@ -18,7 +18,7 @@ A Helm chart for trivy
 
 | Repository | Name | Version |
 |------------|------|---------|
-|  | trivy | 0.24.0 |
+|  | trivy | 0.25.0 |
 
 ## Values
 
