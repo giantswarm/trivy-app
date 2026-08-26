@@ -17,7 +17,7 @@ kyvernoPolicyExceptions:
   enabled: true
   namespace: giantswarm
 
-trivy:
+trivy:  # @schema skipProperties: true; additionalProperties: true
   rbac:
     pspEnabled: false
   image:
