@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Update the README: fix broken documentation links, recommend installing via Flux HelmRelease with `kubectl gs deploy chart`, replace the obsolete Trivy modules example, and describe the vendir-based upstream sync.
 - Allow additional properties for vendored upstream chart values so upstream keys are not rejected by the generated schema.
 
 ## [0.18.0] - 2026-08-25
