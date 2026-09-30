@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.18.1] - 2026-09-30
+
 ### Fixed
 
 - The `helm.sh/chart` label is valid for long chart versions: the 63-character cut trims the whole trailing run of `-`, `.` and `_`.
@@ -224,7 +226,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Initial trivy resources.
 - Basic NetworkPolicy resources.
 
-[Unreleased]: https://github.com/giantswarm/trivy-app/compare/v0.18.0...HEAD
+[Unreleased]: https://github.com/giantswarm/trivy-app/compare/v0.18.1...HEAD
+[0.18.1]: https://github.com/giantswarm/trivy-app/compare/v0.18.0...v0.18.1
 [0.18.0]: https://github.com/giantswarm/trivy-app/compare/v0.17.0...v0.18.0
 [0.17.0]: https://github.com/giantswarm/trivy-app/compare/v0.16.0...v0.17.0
 [0.16.0]: https://github.com/giantswarm/trivy-app/compare/v0.15.0...v0.16.0
