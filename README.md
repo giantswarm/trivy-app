@@ -18,41 +18,62 @@ Trivy is a comprehensive security scanner supporting detection of several types 
 * IaC misconfigurations
 * Sensitive information and secrets
 
-Read more in the (Trivy documentation)[https://aquasecurity.github.io/trivy/]
+Read more in the [Trivy documentation](https://trivy.dev/).
 
 ## Installing
 
-There are several ways to install this app onto a workload cluster.
+The recommended way to install this app onto a workload cluster is a Flux `HelmRelease`:
 
-- [Using our web interface][app-ui]
-- By creating an [App resource][app-crd] in the management cluster as explained in [Getting started with App Platform][app-getting-started].
+- [Deploying an application via a Flux HelmRelease](https://docs.giantswarm.io/tutorials/fleet-management/app-platform/deploy-app-helmrelease/)
+- [Adding a HelmRelease via GitOps](https://docs.giantswarm.io/tutorials/continuous-deployment/helm-releases/add-helmrelease/)
 
 ## Configuring
 
 ### values.yaml
-**This is an example of a values file you could upload using our web interface.**
+
+This is an example of a values file that increases the size of the Trivy cache volume and its memory limit.
+The upstream chart is a dependency, so its values are nested under `trivy`.
+See [`values.yaml`](helm/trivy/values.yaml) and the [upstream chart values](helm/trivy/charts/trivy/values.yaml) for all options.
+
 ```yaml
 # values.yaml
 trivy:
-  modules:
-    # Enable Trivy modules feature and install the spring4shell module
-    enabled: true
-    urls:
-    - ghcr.io/aquasecurity/trivy-module-spring4shell
+  persistence:
+    size: 10Gi
+  resources:
+    limits:
+      memory: 2Gi
 ```
 
-See our [full reference page on how to configure applications][app-config] for more details.
+### Deploying with kubectl-gs
+
+You can use the [official Giant Swarm kubectl plug-in](https://github.com/giantswarm/kubectl-gs/) to create the
+Flux `OCIRepository` and `HelmRelease` in the management cluster.
+
+Here is an example that would install the app to workload cluster `abc123` of organization `example`:
+
+```shell
+kubectl gs deploy chart \
+  --chart-name trivy \
+  --version 0.18.0 \
+  --organization example \
+  --target-cluster abc123 \
+  --target-namespace trivy \
+  --values-file values.yaml
+```
+
+Add `--dry-run` to print the manifests without applying them.
+
+See the [`kubectl gs deploy chart` reference](https://docs.giantswarm.io/reference/kubectl-gs/deploy-chart/) for all options.
 
 ## Development
 
-### Subtrees
-This repo is configured to have a git subtree split folder helm/trivy from https://github.com/giantswarm/trivy-upstream at helm/trivy-app/charts/trivy/ in the local repository.
+### Upstream chart
+
+The upstream chart from [aquasecurity/trivy](https://github.com/aquasecurity/trivy/tree/main/helm) is vendored into
+`helm/trivy/charts/trivy` with [vendir](https://carvel.dev/vendir/) (see [`vendir.yml`](vendir.yml)).
+Run `make update-chart` to sync it and update the chart dependencies.
 
 ## Credit
 
 * https://github.com/aquasecurity/trivy
-
-[app-config]: https://docs.giantswarm.io/app-platform/app-configuration/
-[app-crd]: https://docs.giantswarm.io/ui-api/management-api/crd/apps.application.giantswarm.io/
-[app-getting-started]: https://docs.giantswarm.io/app-platform/getting-started/
-[app-ui]: https://docs.giantswarm.io/ui-api/web/app-platform/#installing-an-app
