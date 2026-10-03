@@ -1,6 +1,6 @@
 # trivy
 
-![Version: 0.25.0](https://img.shields.io/badge/Version-0.25.0-informational?style=flat-square) ![AppVersion: 0.73.0](https://img.shields.io/badge/AppVersion-0.73.0-informational?style=flat-square)
+![Version: 0.26.0](https://img.shields.io/badge/Version-0.26.0-informational?style=flat-square) ![AppVersion: 0.74.0](https://img.shields.io/badge/AppVersion-0.74.0-informational?style=flat-square)
 
 Trivy helm chart
 
