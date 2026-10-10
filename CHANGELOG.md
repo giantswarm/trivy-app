@@ -7,16 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Updated `trivy` to upstream version `v0.74.0`.
+- Updated `trivy` to upstream version `v0.75.0`.
+
 ## [0.18.1] - 2026-09-30
-
-### Fixed
-
-- The `helm.sh/chart` label is valid for long chart versions: the 63-character cut trims the whole trailing run of `-`, `.` and `_`.
 
 ### Changed
 
 - Update the README: fix broken documentation links, recommend installing via Flux HelmRelease with `kubectl gs deploy chart`, replace the obsolete Trivy modules example, and describe the vendir-based upstream sync.
 - Allow additional properties for vendored upstream chart values so upstream keys are not rejected by the generated schema.
+
+### Fixed
+
+- The `helm.sh/chart` label is valid for long chart versions: the 63-character cut trims the whole trailing run of `-`, `.` and `_`.
 
 ## [0.18.0] - 2026-08-25
 
