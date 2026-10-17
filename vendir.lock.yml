@@ -2,10 +2,10 @@ apiVersion: vendir.k14s.io/v1alpha1
 directories:
 - contents:
   - git:
-      commitTitle: 'release: v0.74.0 [main] (#11037)...'
-      sha: e1fd17a0ea4a8cf24bc4b4dd7e2cfbf4bb31b994
+      commitTitle: 'release: v0.76.0 [main] (#11379)...'
+      sha: 531360e5d2a88e732373f1614ba99a38738538b8
       tags:
-      - v0.74.0
+      - v0.76.0
     path: .
   path: helm/trivy/charts
 kind: LockConfig
