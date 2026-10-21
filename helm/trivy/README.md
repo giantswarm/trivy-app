@@ -32,6 +32,8 @@ A Helm chart for trivy
 | verticalPodAutoscaler.trivy.containerPolicies | object | `{}` |  |
 | kyvernoPolicyExceptions.enabled | bool | `true` |  |
 | kyvernoPolicyExceptions.namespace | string | `"giantswarm"` |  |
+| trivy.resources.requests.ephemeral-storage | string | `"256Mi"` |  |
+| trivy.resources.limits.ephemeral-storage | string | `"2Gi"` |  |
 | trivy.rbac.pspEnabled | bool | `false` |  |
 | trivy.image.registry | string | `"gsoci.azurecr.io"` |  |
 | trivy.image.repository | string | `"giantswarm/trivy"` |  |
