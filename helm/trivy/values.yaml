@@ -18,6 +18,12 @@ kyvernoPolicyExceptions:
   namespace: giantswarm
 
 trivy:  # @schema skipProperties: true; additionalProperties: true
+  # ephemeral-storage bounds the tmp-data emptyDir (require-emptydir-requests-and-limits); cpu/memory come from upstream.
+  resources:
+    requests:
+      ephemeral-storage: 256Mi
+    limits:
+      ephemeral-storage: 2Gi
   rbac:
     pspEnabled: false
   image:
