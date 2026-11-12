@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Add a `policies.kyverno.io/v1` PolicyException next to the `kyverno.io/v2` one, so the exception also applies to the CEL (ValidatingPolicy) versions of the policies. `kyvernoPolicyExceptions.legacy.enabled` and `kyvernoPolicyExceptions.cel.enabled` turn each one on or off.
+
 ### Changed
 
 - set size limits for emptyDir volumes
