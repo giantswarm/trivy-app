@@ -32,6 +32,8 @@ A Helm chart for trivy
 | verticalPodAutoscaler.trivy.containerPolicies | object | `{}` |  |
 | kyvernoPolicyExceptions.enabled | bool | `true` |  |
 | kyvernoPolicyExceptions.namespace | string | `"giantswarm"` |  |
+| kyvernoPolicyExceptions.legacy.enabled | bool | `true` | Render the kyverno.io/v2 PolicyException, which only applies to ClusterPolicies. Turn it off once the cluster runs the CEL policies. |
+| kyvernoPolicyExceptions.cel.enabled | bool | `true` | Render the policies.kyverno.io/v1 PolicyException, which only applies to CEL policies (ValidatingPolicy). |
 | trivy.resources.requests.ephemeral-storage | string | `"256Mi"` |  |
 | trivy.resources.limits.ephemeral-storage | string | `"2Gi"` |  |
 | trivy.rbac.pspEnabled | bool | `false` |  |
