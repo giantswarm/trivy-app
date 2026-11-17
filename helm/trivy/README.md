@@ -32,7 +32,7 @@ A Helm chart for trivy
 | verticalPodAutoscaler.trivy.containerPolicies | object | `{}` |  |
 | kyvernoPolicyExceptions.enabled | bool | `true` |  |
 | kyvernoPolicyExceptions.namespace | string | `"giantswarm"` |  |
-| kyvernoPolicyExceptions.legacy.enabled | bool | `true` | Render the kyverno.io/v2 PolicyException, which only applies to ClusterPolicies. Turn it off once the cluster runs the CEL policies. |
+| kyvernoPolicyExceptions.legacy.enabled | bool | `true` | Renders the kyverno.io/v2 PolicyException, which applies to ClusterPolicies only. Will be used as a global switch in a future release. |
 | trivy.resources.requests.ephemeral-storage | string | `"256Mi"` |  |
 | trivy.resources.limits.ephemeral-storage | string | `"2Gi"` |  |
 | trivy.rbac.pspEnabled | bool | `false` |  |
