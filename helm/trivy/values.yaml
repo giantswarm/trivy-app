@@ -15,7 +15,10 @@ verticalPodAutoscaler:
 # Enable Kyverno PolicyException
 kyvernoPolicyExceptions:
   enabled: true
-  namespace: giantswarm
+  namespace: kube-system
+  legacy:
+    # -- Renders the kyverno.io/v2 PolicyException, which applies to ClusterPolicies only. Will be used as a global switch in a future release.
+    enabled: true
 
 trivy:  # @schema skipProperties: true; additionalProperties: true
   # ephemeral-storage bounds the tmp-data emptyDir (require-emptydir-requests-and-limits); cpu/memory come from upstream.
