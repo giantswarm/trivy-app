@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Move the PolicyExceptions from the `giantswarm` namespace to `kube-system` (`kyvernoPolicyExceptions.namespace`), as the `giantswarm` namespace is going away.
 - set size limits for emptyDir volumes
 
 ## [0.18.1] - 2026-09-30
