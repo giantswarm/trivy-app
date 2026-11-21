@@ -15,3 +15,4 @@ spec:
       port: {{ .Values.service.port | default 4954 }}
       targetPort: {{ .Values.service.port | default 4954 }}
   sessionAffinity: {{ .Values.service.sessionAffinity | default "ClientIP" }}
+
